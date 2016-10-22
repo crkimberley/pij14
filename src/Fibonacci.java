@@ -42,13 +42,13 @@ public class Fibonacci {
     public long fibMapped(int n) {
         if (fibMap == null) {
             fibMap = new HashMap<Integer, Long>();
-            fibMap.put(1, (long) 1);
-            fibMap.put(2, (long) 1);
+            fibMap.put(1, 1L);
+            fibMap.put(2, 1L);
         }
         if (fibMap.containsKey(n)) {
             return fibMap.get(n);
         }
-        fibMap.put(n, (fibMapped(n-1) + fibMapped(n-2)));
+        fibMap.put(n, fibMapped(n-1) + fibMapped(n-2));
         return fibMap.get(n);
     }
 }
