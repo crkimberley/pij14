@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,18 +12,34 @@ public class MergeSort {
     }
 
     private static void mergeSort(int[] numbers, int left, int right) {
-        if (right <= left) {
-            return;
+        if (left < right) {
+            int middle = left + (right - left) / 2;
+            mergeSort(numbers, left, middle);
+            mergeSort(numbers, middle + 1, right);
+            merge(numbers, left, middle, right);
         }
-        int middle = (right + left) / 2;
-        mergeSort(numbers, left, middle);
-        mergeSort(numbers, middle + 1, right);
-        merge(numbers, left, middle, right);
     }
 
+    private static void merge(int[] numbers, int left, int middle, int right) {
+        int[] tempL = Arrays.copyOfRange(numbers, left, middle + 1);
+        int[] tempR = Arrays.copyOfRange(numbers, middle + 1, right + 1);
+
+        for (int i = 0, j = 0, k = left; k <= right; k++) {
+            if (i == tempL.length) {
+                numbers[k] = tempR[j++];
+                continue;
+            }
+            if (j == tempR.length) {
+                numbers[k] = tempL[i++];
+                continue;
+            }
+            numbers[k] = tempL[i] < tempR[j] ? tempL[i++] : tempR[j++];
+        }
+    }
+/*
     private static void merge(int[] numbers, int left, int middle, int right ) {
         int i, j;
-        int[] temp = new int[right + 1];
+        int[] temp = new int[numbers.length];
         for (i = middle + 1; i > left; i--) {
             temp[i - 1] = numbers[i - 1];
         }
@@ -37,4 +54,5 @@ public class MergeSort {
             }
         }
     }
+ */
 }
