@@ -6,8 +6,8 @@ import java.util.Map;
  */
 public class Fibonacci {
 
-    private long[] fibArray = null;
-    private Map<Integer, Long> fibMap;
+    private static long[] fibArray = null;
+    private static Map<Integer, Long> fibMap;
 
 /*
     public long fib(int n) {
@@ -19,7 +19,7 @@ public class Fibonacci {
         }
     }
 */
-    public long fibMemoized(int n) {
+    public static long fibMemoized(int n) {
         if (fibArray == null) {
             initialiseFibArray(n);
         }
@@ -30,7 +30,7 @@ public class Fibonacci {
         return fibArray[n];
     }
 
-    private void initialiseFibArray(int size) {
+    private static void initialiseFibArray(int size) {
         fibArray = new long[size+1];
         for (int i=0; i<=size; i++) {
             fibArray[i] = -1;
@@ -39,7 +39,7 @@ public class Fibonacci {
         fibArray[2] = 1;
     }
 
-    public long fibMapped(int n) {
+    public static long fibMapped(int n) {
         if (fibMap == null) {
             fibMap = new HashMap<Integer, Long>();
             fibMap.put(1, 1L);

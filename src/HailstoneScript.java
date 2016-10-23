@@ -7,6 +7,6 @@ public class HailstoneScript {
     }
 
     private void launch() {
-        System.out.println(new Hailstone().hailstoneSequence(27));
+        System.out.println(Hailstone.hailstoneSequence(27));
     }
 }
