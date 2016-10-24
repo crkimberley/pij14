@@ -6,13 +6,13 @@ import java.util.Random;
 /**
  * @author crkimberley on 23/10/2016.
  */
-public class MergeSortScript {
+public class SortScript {
 
     Random random = new Random();
     int[] randomArray;
 
     public static void main(String[] args) {
-        new MergeSortScript().launch();
+        new SortScript().launch();
     }
 
     private void launch() {
@@ -25,6 +25,11 @@ public class MergeSortScript {
             randomArray[i] = random.nextInt(10000);
         }
         MergeSort.mergeSort(randomArray);
+        printArrayEnds(randomArray);
+        for (int i=0; i<RANDOM_LIST_SIZE; i++) {
+            randomArray[i] = random.nextInt(10000);
+        }
+        QuickSort.quickSort(randomArray);
         printArrayEnds(randomArray);
         System.out.print("Search for 9997 in mergeSorted list with binarySearch...");
         System.out.println(BinarySearch.search(intArrayToList(randomArray), 9997));
