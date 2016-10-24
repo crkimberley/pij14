@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Random;
 public class MergeSortScript {
 
     Random random = new Random();
-    int[] randomList;
+    int[] randomArray;
 
     public static void main(String[] args) {
         new MergeSortScript().launch();
@@ -18,12 +20,14 @@ public class MergeSortScript {
         int [] numberList = {645, 33, 912, 4446, 25, 70123, 89, 99, 103, 23, 111};
         MergeSort.mergeSort(numberList);
         System.out.println(Arrays.toString(numberList));
-        randomList = new int[RANDOM_LIST_SIZE];
+        randomArray = new int[RANDOM_LIST_SIZE];
         for (int i=0; i<RANDOM_LIST_SIZE; i++) {
-            randomList[i] = random.nextInt(10000);
+            randomArray[i] = random.nextInt(10000);
         }
-        MergeSort.mergeSort(randomList);
-        printArrayEnds(randomList);
+        MergeSort.mergeSort(randomArray);
+        printArrayEnds(randomArray);
+        System.out.print("Search for 9997 in mergeSorted list with binarySearch...");
+        System.out.println(BinarySearch.search(intArrayToList(randomArray), 9997));
     }
 
     private void printArrayEnds(int[] ints) {
@@ -33,6 +37,14 @@ public class MergeSortScript {
         }
         int[] start = Arrays.copyOfRange(ints, 0, 10);
         int[] end = Arrays.copyOfRange(ints, ints.length - 10, ints.length);
-        System.out.print(Arrays.toString(start) + " ... " + Arrays.toString(end));
+        System.out.println(Arrays.toString(start) + " ... " + Arrays.toString(end));
+    }
+
+    private List<Integer> intArrayToList(int[] intArray) {
+        List<Integer> integerList = new ArrayList<Integer>();
+        for (int number : intArray) {
+            integerList.add(number);
+        }
+        return integerList;
     }
 }

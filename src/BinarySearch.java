@@ -16,6 +16,7 @@ public class BinarySearch {
         }
         int middle = (left + right) / 2;
         // Found
+        // System.out.println("Check if (value == list.get(middle))");
         if (value == list.get(middle)) {
             return true;
         }
