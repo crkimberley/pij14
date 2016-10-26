@@ -10,6 +10,8 @@ public class Dames {
     // using permutations of the string "01234567" for the arrangements of queens/dames
     // Calculate all permutations - queens will be alone on their rows and columns
     // then check if any other queens are on the same diagonal before adding solution to list
+    //
+    // Could easily convert strings to arrays of booleans, as in original question, if required
     
     public static List<String> solve8Dames() {
         return permute(new ArrayList<String>(), "", "01234567");
