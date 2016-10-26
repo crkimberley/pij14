@@ -7,7 +7,7 @@ import java.util.List;
 public class Dames {
 
     // Reworked Anagrams algorithm
-    // using permutations of the string "01234567" for the arrangements of queens/dames
+    // using permutations of the string "01234567" to represent the arrangements of queens/dames
     // Calculate all permutations - queens will be alone on their rows and columns
     // then check if any other queens are on the same diagonal before adding solution to list
     //
