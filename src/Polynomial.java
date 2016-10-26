@@ -5,11 +5,12 @@ public class Polynomial {
 
     public final static double LOWER_LIMIT_PRECISION = 0.001;
     public final static double RESULT_PRECISION = 0.000001;
+    public final static double NO_FUNCTION_SIGN_CHANGE_IN_INTERVAL = 5000;
 
     public static double root(int[] polynomial) {
         double lowerLimit = oppositeSignInterval(polynomial);
         if (lowerLimit > 1000) {
-            System.out.print("\nNo root between -1000 & 1000\t*** ERROR CODE 5000 WILL BE RETURNED *** ");
+            System.out.print("\nNo function sign change between -1000 & 1000\t*** ERROR CODE 5000 WILL BE RETURNED *** ");
             return lowerLimit;
         }
         return root(polynomial, lowerLimit, 1000);
@@ -42,6 +43,6 @@ public class Polynomial {
                 return a;
             }
         }
-        return 5000;
+        return NO_FUNCTION_SIGN_CHANGE_IN_INTERVAL;
     }
 }
