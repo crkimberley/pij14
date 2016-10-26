@@ -9,8 +9,7 @@ public class Anagram {
     // Set 1st letter (loop through all in turn) then add all permutations of remaining letters
 
     public static List<String> permute(String word) {
-        List<String> anagrams = new ArrayList<String>();
-        return permute(anagrams, "", word);
+        return permute(new ArrayList<String>(), "", word);
     }
 
     private static List<String> permute(List<String> anagrams, String prefix, String word) {
