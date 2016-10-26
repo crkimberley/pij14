@@ -8,6 +8,8 @@ public class Dames {
 
     // Reworked Anagrams algorithm
     // using permutations of the string "01234567" for the arrangements of queens/dames
+    // Calculate all permutations - queens will be alone on their rows and columns
+    // then check if any other queens are on the same diagonal before adding solution to list
     
     public static List<String> solve8Dames() {
         return permute(new ArrayList<String>(), "", "01234567");
@@ -15,10 +17,11 @@ public class Dames {
 
     private static List<String> permute(List<String> solutions, String prefix, String solution) {
         if (solution.length() == 0) {
-            // Check solution for diagonal clashes
+            // Permutation calculated - now check solution for diagonal clashes
             boolean diagonalsClear = true;
             for (int i=0; diagonalsClear && i<8; i++) {
                 for (int j=0; j<i; j++) {
+                    // Check for previously added queens on the diagonals
                     if (Math.abs(Character.getNumericValue(prefix.charAt(i)) - Character.getNumericValue(prefix.charAt(j))) == i - j) {
                         diagonalsClear = false;
                         break;
