@@ -35,4 +35,18 @@ public class PrimeDivisorListImplTest {
     public void testAddNullThrowsNullPointerException() throws Exception {
         list.add(null);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddNonPrimeThrowsIllegalArgumentException() {
+        list.add(8);
+    }
+
+    @Test
+    public void testToStringReturnsAppropriateRepresentationOfList() {
+        list.add(2);
+        list.add(3);
+        list.add(3);
+        list.add(7);
+        assertEquals("[ 2 * 3 * 3 * 7 = 126 ]", list.toString());
+    }
 }
