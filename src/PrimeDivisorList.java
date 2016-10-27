@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * @author crkimberley on 27/10/2016.
  */
@@ -12,7 +14,7 @@ public interface PrimeDivisorList {
     /*
      * @return Integer from list
      */
-    Integer remove();
+    Integer remove(int index);
 
     /*
      * @return formatted String representation of list
