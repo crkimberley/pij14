@@ -8,10 +8,9 @@ public class NumberInput {
 
     public void average() {
         Scanner input;
-        int inputCount = 1;
         double sum = 0;
-        for (int i=1; i<=10; i++) {
-            System.out.print("Enter number " + i + ": ");
+        for (int i=0; i<10; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
             try {
                 input = new Scanner(System.in);
                 sum = sum + input.nextInt();
