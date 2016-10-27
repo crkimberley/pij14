@@ -15,5 +15,4 @@ public class PrimeDivisorListImplScript {
         list.add(13);
         System.out.println(list);
     }
-
 }
